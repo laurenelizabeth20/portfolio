@@ -6,6 +6,8 @@ import random as rand
 # Set how many rows and columns we will have
 ROW_COUNT = 3
 COLUMN_COUNT = 4
+
+#Load all sounds and pictures
 CLICK_SOUND = arcade.load_sound("matching/click_sound.mp3")
 FLOWER = arcade.load_texture("matching/flower.jpg")
 CAT = arcade.load_texture("matching/cat.jpg")
@@ -54,6 +56,7 @@ class MyGame(arcade.Window):
 
         arcade.set_background_color(arcade.color.BLACK)
 
+        #randomly assign pictures to squares, making sure there are two of each picture on the board
         squares = [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5]
         self.sqr1 = rand.choice(squares)
         squares.remove(self.sqr1)
