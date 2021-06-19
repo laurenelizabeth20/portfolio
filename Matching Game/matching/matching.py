@@ -26,8 +26,8 @@ CAT = arcade.load_texture("matching/cat.jpg")
 DOG = arcade.load_texture("matching/dog.jpg")
  
 # This sets the WIDTH and HEIGHT of each grid location
-WIDTH = 90
-HEIGHT = 90
+WIDTH = 100
+HEIGHT = 100
  
 # This sets the margin between each cell
 # and on the edges of the screen.
@@ -59,20 +59,36 @@ class MyGame(arcade.Window):
             # in this row
             self.grid.append([])
             for column in range(COLUMN_COUNT):
+                
+                #setattr(self.grid[row][column], "image", rand.choice(images))
                 self.grid[row].append(0)  # Append a cell
 
         arcade.set_background_color(arcade.color.BLACK)
+
+        squares = [0, 0, 1, 1, 2, 2]
+        self.sqr1 = rand.choice(squares)
+        squares.remove(self.sqr1)
+        self.sqr2 = rand.choice(squares)
+        squares.remove(self.sqr2)
+        self.sqr3 = rand.choice(squares)
+        squares.remove(self.sqr3)
+        self.sqr4 = rand.choice(squares)
+        squares.remove(self.sqr4)
+        self.sqr5 = rand.choice(squares)
+        squares.remove(self.sqr5)
+        self.sqr6 = rand.choice(squares)
+        squares.remove(self.sqr6)
+
 
     def on_draw(self):
         """
         Render the screen.
         """
-        self.images = [CAT, FLOWER, DOG]
-        self.image = rand.choice(self.images)
 
         # This command has to happen before we start drawing
         arcade.start_render()
 
+        self.images = [CAT, FLOWER, DOG]
 
         # Draw the grid
         for row in range(ROW_COUNT):
@@ -82,7 +98,19 @@ class MyGame(arcade.Window):
                 y = (MARGIN + HEIGHT) * row + MARGIN + HEIGHT // 2
 
                 if self.grid[row][column] == 1:
-                    arcade.draw_lrwh_rectangle_textured(x-45, y-45, WIDTH, HEIGHT, self.image)
+                    if row == 0 and column == 0:
+                        image = self.images[self.sqr1]
+                    elif row == 0 and column == 1:
+                        image = self.images[self.sqr2]
+                    elif row == 0 and column == 2:
+                        image = self.images[self.sqr3]
+                    elif row == 1 and column == 0:
+                        image = self.images[self.sqr4]
+                    elif row == 1 and column == 1:
+                        image = self.images[self.sqr5]
+                    elif row == 1 and column == 2:
+                        image = self.images[self.sqr6]
+                    arcade.draw_lrwh_rectangle_textured(x-50, y-50, WIDTH, HEIGHT, image)
                 else:
                     white = arcade.color.WHITE
                     arcade.draw_rectangle_filled(x, y, WIDTH, HEIGHT, white)
