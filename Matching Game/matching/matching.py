@@ -1,29 +1,18 @@
-"""
-Array Backed Grid
-  
-Show how to use a two-dimensional list/array to back the display of a
-grid on-screen.
 
-Note: Regular drawing commands are slow. Particularly when drawing a lot of
-items, like the rectangles in this example.
-
-For faster drawing, create the shapes and then draw them as a batch.
-See array_backed_grid_buffered.py
- 
-If Python and Arcade are installed, this example can be run from the command line with:
-python -m arcade.examples.array_backed_grid
-"""
 import arcade
 from pathlib import Path
 import random as rand
  
 # Set how many rows and columns we will have
-ROW_COUNT = 2
-COLUMN_COUNT = 3
+ROW_COUNT = 3
+COLUMN_COUNT = 4
 CLICK_SOUND = arcade.load_sound("matching/click_sound.mp3")
 FLOWER = arcade.load_texture("matching/flower.jpg")
 CAT = arcade.load_texture("matching/cat.jpg")
 DOG = arcade.load_texture("matching/dog.jpg")
+TURTLE = arcade.load_texture("matching/turtle.jpg")
+BUNNY = arcade.load_texture("matching/bunny.jpg")
+TREE = arcade.load_texture("matching/tree.jpg")
  
 # This sets the WIDTH and HEIGHT of each grid location
 WIDTH = 100
@@ -65,7 +54,7 @@ class MyGame(arcade.Window):
 
         arcade.set_background_color(arcade.color.BLACK)
 
-        squares = [0, 0, 1, 1, 2, 2]
+        squares = [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5]
         self.sqr1 = rand.choice(squares)
         squares.remove(self.sqr1)
         self.sqr2 = rand.choice(squares)
@@ -78,6 +67,18 @@ class MyGame(arcade.Window):
         squares.remove(self.sqr5)
         self.sqr6 = rand.choice(squares)
         squares.remove(self.sqr6)
+        self.sqr7 = rand.choice(squares)
+        squares.remove(self.sqr7)
+        self.sqr8 = rand.choice(squares)
+        squares.remove(self.sqr8)
+        self.sqr9 = rand.choice(squares)
+        squares.remove(self.sqr9)
+        self.sqr10 = rand.choice(squares)
+        squares.remove(self.sqr10)
+        self.sqr11 = rand.choice(squares)
+        squares.remove(self.sqr11)
+        self.sqr12 = rand.choice(squares)
+        squares.remove(self.sqr12)
 
 
     def on_draw(self):
@@ -88,7 +89,7 @@ class MyGame(arcade.Window):
         # This command has to happen before we start drawing
         arcade.start_render()
 
-        self.images = [CAT, FLOWER, DOG]
+        self.images = [CAT, FLOWER, DOG, TURTLE, BUNNY, TREE]
 
         # Draw the grid
         for row in range(ROW_COUNT):
@@ -104,12 +105,24 @@ class MyGame(arcade.Window):
                         image = self.images[self.sqr2]
                     elif row == 0 and column == 2:
                         image = self.images[self.sqr3]
-                    elif row == 1 and column == 0:
+                    elif row == 0 and column == 3:
                         image = self.images[self.sqr4]
-                    elif row == 1 and column == 1:
+                    elif row == 1 and column == 0:
                         image = self.images[self.sqr5]
-                    elif row == 1 and column == 2:
+                    elif row == 1 and column == 1:
                         image = self.images[self.sqr6]
+                    elif row == 1 and column == 2:
+                        image = self.images[self.sqr7]
+                    elif row == 1 and column == 3:
+                        image = self.images[self.sqr8]
+                    elif row == 2 and column == 0:
+                        image = self.images[self.sqr9]
+                    elif row == 2 and column == 1:
+                        image = self.images[self.sqr10]
+                    elif row == 2 and column == 2:
+                        image = self.images[self.sqr11]
+                    elif row == 2 and column == 3:
+                        image = self.images[self.sqr12]
                     arcade.draw_lrwh_rectangle_textured(x-50, y-50, WIDTH, HEIGHT, image)
                 else:
                     white = arcade.color.WHITE
