@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    {% load static %}
+      <link rel="stylesheet" href="{% static 'home.css' %}" type="text/css" media="screen">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="home.js"></script>
+    <link
+      rel="icon"
+      href="https://i.etsystatic.com/22281064/d/il/83fe28/2224145289/il_340x270.2224145289_f0ub.jpg?version=0"
+    />
+    <title>Parents Supporting Parents</title>
+  </head>
+  <body>
+    <div class="content">
+      <!-- Button to open the modal login form -->
+      {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">Log Out</a><br />
+
+      {% else %}
+        <a href="{% url 'login' %}">Log In</a>
+      {% endif %}
+
+      </div>
+      <header>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="tips-tricks.html">Tips and Tricks</a>
+          <a href="ranting.html">Ranting and Supporting</a>
+        </nav>
+
+        <img
+          id="logo"
+          src="https://cdn.glitch.com/a95397b7-fd4e-4bd1-96fd-7a012f9a3041%2Frsz_1logo2.jpg?v=1614879244145"
+          alt="logo"
+        />
+        <h1>Parents Supporting Parents</h1>
+      </header>
+      
+      <section class="sect-home">
+        <h2>
+          Home
+        </h2>
+        <p>
+          Parents will find everything they need and want within this website. There is relationship advice that says when 
+          your partner is having troubles, ask them whether they want comfort or solutions. We want to provide that for parents.
+        </p>
+      </section>
+      
+      <section class="sect-1">
+        <div class="section2">
+          <h2>Comfort or Solutions: Your Choice</h2>
+          <p>
+            We want parents to post on the comfort or solution side of the
+            webpage or both and be able to find what they want. In return, we
+            want moms and dads to be welcomed into a community of support and
+            encouragement.
+          </p>
+        </div>
+        <img
+          src="https://cdn.glitch.com/a95397b7-fd4e-4bd1-96fd-7a012f9a3041%2Frsz_dad.jpg?v=1614878344744"
+          alt="dad and family Image"
+        />
+      </section>
+
+      <section class="sect-2">
+        <img
+          src="https://cdn.glitch.com/a95397b7-fd4e-4bd1-96fd-7a012f9a3041%2Frsz_baby.jpg?v=1614878360185"
+          alt="Tips and Tricks Image"
+        />
+        <div class="section1">
+          <h2>Tips and Tricks</h2>
+          <p>
+            Find the advice you need for every topic you need. New parents ask
+            questions, more seasoned parents or experts answer those questions.
+          </p>
+        </div>
+      </section>
+
+      <section class="sect-3">
+        <div class="section2">
+          <h2>Ranting and Supporting</h2>
+          <p>
+            We are the social media that isn’t toxic, only showing people the
+            perfect seconds or your day, but showing your whole day, the good
+            and the bad.
+          </p>
+        </div>
+        <img
+          src="https://cdn.glitch.com/a95397b7-fd4e-4bd1-96fd-7a012f9a3041%2Frsz_1logo.jpg?v=1614878959279"
+          alt="Supporting Image"
+        />
+      </section>
+
+      <hr />
+
+      <footer>
+        <p class="legal">&copy; 2021 Parents - Lauren Warren</p>
+        <div class="social">
+          <a href="https://www.facebook.com/"
+            ><img
+              src="https://byui-cit.github.io/wdd130/images/icons/facebook.png"
+              alt="Facebook icon"
+          /></a>
+          <a href="https://www.instagram.com/"
+            ><img
+              src="https://byui-cit.github.io/wdd130/images/icons/instagram.png"
+              alt="Instagram icon"
+          /></a>
+          <a href="https://www.twitter.com/"
+            ><img
+              src="https://byui-cit.github.io/wdd130/images/icons/twitter.png"
+              alt="Twitter icon"
+          /></a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
